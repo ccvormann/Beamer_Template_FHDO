@@ -1,0 +1,104 @@
+---
+title: "HRM -- Core Concepts, Methods and Tools"
+subtitle: "BA International Business"
+shorttitle: "Tarifverträge und New Work"
+author: "Prof. Dr. Claus Vormann"
+date: "10.09.2021"
+output:
+  beamer_presentation:
+    slide_level: 2
+    latex_engine: lualatex
+lang: de-DE
+csquotes: true 
+classoption: 
+  - "aspectratio=169"
+  - t
+header-includes: 
+- \usetheme{FHDO}
+- \definecolor{FHDOorange}{RGB}{245, 85, 0}
+- \setbeamercolor{frametitle}{fg=FHDOorange, bg=black!2}
+- \setbeamercolor{author in head/foot}{fg=black!2, bg=FHDOorange}
+- \setbeamercolor{progress bar in head/foot}{fg=FHDOorange}
+- \usepackage{color}
+- \usepackage{graphicx}
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{pgfpages}
+#- \setbeameroption{show notes on second screen}
+#- \setbeameroption{show only notes}
+- \setbeameroption{hide notes}
+
+# bibliography: '/home/ccv/Google Drive/Wiss_Arbeiten/litccv.bib'
+# csl: universitat-bremen-institut-fur-politikwissenschaft
+ 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dev = 'pdf', fig.showtext = TRUE)
+library(tidyverse)
+library(RColorBrewer)
+library(ggrepel)
+library(tufte)
+library(kableExtra)
+library(latex2exp)
+library(showtext)
+ font_add(family = "Meta Office Pro", regular = "/usr/share/fonts/TTF/MetaOffcPro-Norm.ttf") 
+```
+
+
+# Einstieg
+
+## Ein Praxisbeispiel
+
+**Lüdenscheid, April 2017...** 
+
+* Sie sind HR Business Partner:in bei einem mittelständischen Automobilzulieferer. Das Unternehmen ist an den Metall-Tarifvertrag (NRW) gebunden, dieser sieht ab dem 1.4.2017 eine Lohnsteigerung um 2% vor.
+* Eine Mitarbeiterin ruft Sie an. Gerade hat sie gelesen, dass die Beschäftigten der Deutschen Bahn im neuen Tarifvertrag individuell wählen können, ob sie
+  + 2,6% mehr Geld
+  + sechs Tage mehr Urlaub
+  + eine Wochenstunde Arbeitszeitverkürzung haben möchten.
+* Die Mitarbeiterin meint, "Zeit für mein Familie ist so knapp. Ich möchte daher die Tariferhöhung auch in Form von mehr Jahresurlaub haben, so wie bei der Bahn."
+
+::: notes
+
+- Stellen Sie sich bitte vor, wir sind in Lüdenscheid, also quasi Dortmund-Süd, und es ist April 2017!
+- Sie sind HR BP ...
+
+- Was antworten Sie der MA? Ich stelle Ihnen jetzt drei Optionen vor und sie können anschließend in einer anonymen Web-Umfrage eine Option auswählen. Anschließend können wir die Ergebnisse gemeinsam ansehen. 
+:::
+
+
+
+## Zeit für Ihre Fragen{.c}
+
+\begin{center}
+\vspace{-13mm}
+\Huge \usebeamercolor[fg]{frame} \textbf{Welche Fragen haben Sie?}
+\end{center}
+
+
+
+
+::: notes
+- jetzt müssen wir mal zu Professor Kiunke schauen, wie viel Zeit haben wir für die Nachfragen und die Diskussion?
+
+:::
+
+# Backup {.unlisted .unnumbered}
+
+
+
+## Referenzen und weiterführende Literatur {.allowframebreaks .noframenumbering}    
+\footnotesize

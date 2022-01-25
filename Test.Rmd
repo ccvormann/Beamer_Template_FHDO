@@ -86,20 +86,26 @@ library(showtext)
   + Aufzählungen sind in zwei Ebenen vorgesehen
 
 1. Numerierte Aufzählungen
-2. sind ebenfalls vorgesehen
+2. sind ebenfalls vorgesehen^[hier sollte die Formatierung noch angepasst werden]
 
 ## Folien mit Fließtext
 
 \lipsum[1]
 
-## Zitazionen und Fußnoten
+## Zitationen und Fußnoten
 
 - Das Template unterstützt Zitate sowohl nach Harvard-Methode [@Oehlrich2019, S. 123] und im Chicago-Stye mit Fußnoten^[vgl. @Theisen2021, S. 456]
 - Fußnoten werden in der Präsentation fortlaufend numeriert^[vgl. @Kahneman2021]. In der Template-Datei kann die Nutzung des Fußnotenzeichens abgestellt werden, wenn in den Fußnoten eher die Quellen der Seite angegeben werden sollen
   - Die Abschaltung erfolgt dokumentenweit
   - Aus Platzgründen empfiehlt es sich, alle Quellen der Folie in einer Fußnote zu nennen. 
 
-## Blöcke und Verbatim
+## Blöcke
+
+### Ein Block
+
+Ein abgesetzter Textblock kann mit einer Gliederung unterhalb der höchst definierten eingeleitet werden. Hier ist eine Verbesserung der Formatierung erforderlich.
+
+
 
 ## `R Code`
 

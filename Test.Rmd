@@ -1,9 +1,8 @@
 ---
-title: "HRM -- Core Concepts, Methods and Tools"
-subtitle: "BA International Business"
-shorttitle: "Tarifverträge und New Work"
+title: "LaTeX Beamer Theme im CD der FH Dortmund"
+subtitle: "Test und Beschreibung"
 author: "Prof. Dr. Claus Vormann"
-date: "10.09.2021"
+date: "SoSe 2022"
 output:
   beamer_presentation:
     slide_level: 2
@@ -15,10 +14,6 @@ classoption:
   - t
 header-includes: 
 - \usetheme{FHDO}
-- \definecolor{FHDOorange}{RGB}{245, 85, 0}
-- \setbeamercolor{frametitle}{fg=FHDOorange, bg=black!2}
-- \setbeamercolor{author in head/foot}{fg=black!2, bg=FHDOorange}
-- \setbeamercolor{progress bar in head/foot}{fg=FHDOorange}
 - \usepackage{color}
 - \usepackage{graphicx}
 - \usepackage{booktabs}
@@ -35,12 +30,13 @@ header-includes:
 - \usepackage[normalem]{ulem}
 - \usepackage{makecell}
 - \usepackage{pgfpages}
+- \usepackage{lipsum}
 #- \setbeameroption{show notes on second screen}
 #- \setbeameroption{show only notes}
 - \setbeameroption{hide notes}
 
-# bibliography: '/home/ccv/Google Drive/Wiss_Arbeiten/litccv.bib'
-# csl: universitat-bremen-institut-fur-politikwissenschaft
+bibliography: "/home/ccv/Google Drive/Wiss_Arbeiten/Meine Bibliothek.bib"
+#csl: universitat-bremen-institut-fur-politikwissenschaft
  
 ---
 
@@ -54,32 +50,67 @@ library(tufte)
 library(kableExtra)
 library(latex2exp)
 library(showtext)
- font_add(family = "Meta Office Pro", regular = "/usr/share/fonts/TTF/MetaOffcPro-Norm.ttf") 
 ```
 
 
-# Einstieg
+# Grundlagen
 
-## Ein Praxisbeispiel
+## Ein erstes Slide 
 
-**Lüdenscheid, April 2017...** 
+\alert{Das ist ein \LaTeX Beamer-Theme im Corporate Design der Fachhochschule Dortmund}
 
-* Sie sind HR Business Partner:in bei einem mittelständischen Automobilzulieferer. Das Unternehmen ist an den Metall-Tarifvertrag (NRW) gebunden, dieser sieht ab dem 1.4.2017 eine Lohnsteigerung um 2% vor.
-* Eine Mitarbeiterin ruft Sie an. Gerade hat sie gelesen, dass die Beschäftigten der Deutschen Bahn im neuen Tarifvertrag individuell wählen können, ob sie
-  + 2,6% mehr Geld
-  + sechs Tage mehr Urlaub
-  + eine Wochenstunde Arbeitszeitverkürzung haben möchten.
-* Die Mitarbeiterin meint, "Zeit für mein Familie ist so knapp. Ich möchte daher die Tariferhöhung auch in Form von mehr Jahresurlaub haben, so wie bei der Bahn."
+* \lipsum[][2-4] test
+  + Text kann **fett** oder *kursiv* dargestellt werden (mit der Notation von RMarkdown)
+  + Text kann mit `\alert{}` \alert{farbig} abgesetzt werden 
+* \lipsum[][3-4] corpum
+  + Es werden zwei 
+  + Gliederungsebenen unterstützt
+
 
 ::: notes
 
 - Stellen Sie sich bitte vor, wir sind in Lüdenscheid, also quasi Dortmund-Süd, und es ist April 2017!
-- Sie sind HR BP ...
+- Sie sind HR BP ...[@Bamberger2010]
 
 - Was antworten Sie der MA? Ich stelle Ihnen jetzt drei Optionen vor und sie können anschließend in einer anonymen Web-Umfrage eine Option auswählen. Anschließend können wir die Ergebnisse gemeinsam ansehen. 
 :::
 
+# Technische Umsetzung 
 
+## Dokumentstruktur
+
+- Das Template unterstützt eine Gliederung in Abschnite `#` und Folien `##`
+- Dabei wird auf den Folien der Abschnittsname und der Folientitel angegeben. Jeder Abschnitt beginnt mit einer Unterteilungsfolie
+- Ein Inhaltsverzeichnis kann noch eingefügt werden.
+- Auf den Folien sind Fließtext und Aufzählungen möglich
+  + Aufzählungen sind in zwei Ebenen vorgesehen
+
+1. Numerierte Aufzählungen
+2. sind ebenfalls vorgesehen
+
+## Folien mit Fließtext
+
+\lipsum[1]
+
+## Zitazionen und Fußnoten
+
+- Das Template unterstützt Zitate sowohl nach Harvard-Methode [@Oehlrich2019, S. 123] und im Chicago-Stye mit Fußnoten^[vgl. @Theisen2021, S. 456]
+- Fußnoten werden in der Präsentation fortlaufend numeriert^[vgl. @Kahneman2021]. In der Template-Datei kann die Nutzung des Fußnotenzeichens abgestellt werden, wenn in den Fußnoten eher die Quellen der Seite angegeben werden sollen
+  - Die Abschaltung erfolgt dokumentenweit
+  - Aus Platzgründen empfiehlt es sich, alle Quellen der Folie in einer Fußnote zu nennen. 
+
+## Blöcke und Verbatim
+
+## `R Code`
+
+Wenn das Template mit `rMarkdown` genutzt wird, kann entsprechender Code eingebaut und ausgeführt werden.
+
+\scriptsize
+
+```{r my-chunk, echo=TRUE, Results=T, warning=FALSE, message=FALSE, fig.height=1.7, fig.width=3.5}
+library(mosaic)
+xpnorm(44.5, mean=55, sd=15)
+```
 
 ## Zeit für Ihre Fragen{.c}
 
@@ -89,14 +120,10 @@ library(showtext)
 \end{center}
 
 
+##  {.standout}
+Thank you!
 
-
-::: notes
-- jetzt müssen wir mal zu Professor Kiunke schauen, wie viel Zeit haben wir für die Nachfragen und die Diskussion?
-
-:::
-
-# Backup {.unlisted .unnumbered}
+# Backup  {.unlisted .unnumbered}
 
 
 

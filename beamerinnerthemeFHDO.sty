@@ -1,0 +1,195 @@
+% LaTeX-Beamer Theme that replicates the style guide, corporate design and PPT-Template of 
+% https://www.fh-dortmund.de 
+% 
+% Code by Claus Vormann, (c) 2022
+% This code is distributable with one of the following licences:
+% CC-BY 4.0 https://creativecommons.org/licenses/by/4.0/
+% LPPL https://www.latex-project.org/lppl/
+%
+% The code is partially based on:
+% https://rlog.rgtti.com/2019/09/21/make-your-own-beamer-style-ducks/
+% https://tex.stackexchange.com/questions/146529/design-a-custom-beamer-theme-from-scratch
+% https://tex.stackexchange.com/questions/26299/how-does-beamer-build-the-frame
+% ...and several other ideas on tex.stackexchange.com
+%
+% Thanks to ... for very useful hints.
+%
+
+\RequirePackage{etoolbox}
+\RequirePackage{keyval}
+\RequirePackage{calc}
+\RequirePackage{pgfopts}
+\RequirePackage{tikz}
+
+\mode<presentation>
+
+\newcommand{\backgroundpics}{
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \node[] at ([shift={(1.7cm,-1cm)}]current page.north west) 
+      {
+        \includegraphics[width=23mm]{FHDO-Wortmarke_155x56_RGB.png} % Wortmarke oben links auf jeder Seite
+      };
+      \node[] at ([shift={(-1.5cm,-1cm)}]current page.north east) 
+      {
+        \includegraphics[width=15mm]{FHDO50_kl_g.png} % Jubiläumsclaim oben rechts auf jeder Seite
+      };
+    \end{tikzpicture}
+}
+
+\setbeamertemplate{background}{
+  \backgroundpics
+}
+
+
+
+% Title page - Anordnung der Elemente Autor, Datum, Titel und Untertitel
+\defbeamertemplate*{title page}{FHDO}[1][] 
+{ 
+      \begin{tikzpicture}[remember picture,overlay] 
+        \begin{pgfonlayer}{background}
+        \node [shading = axis,rectangle, left color=FHDOorange, right color=FHDOorange2,shading angle=225, anchor=north, minimum width=\the\paperwidth, minimum height=\the\paperheight] (box) at ([shift={(4cm,0cm)}]current page.north){};
+        \node[] at ([shift={(-1.5cm,1.6cm)}]current page.south east) 
+        {
+          \includegraphics[width=23mm]{FHDO50_gr.png} % Logo Jubiläum in Colorbox
+        };
+      \end{pgfonlayer}
+      \node[align=left] at ([shift={(1.5cm,1.5cm)}]current page.south west) 
+      { \usebeamerfont{author}\usebeamercolor{author}\insertauthor\\ 
+        \usebeamerfont{author}\usebeamercolor{author}\insertdate};
+      \node[align=left] at ([shift={(9.5cm,4.4cm)}]current page.south west) 
+      {      \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle \\%
+      \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par };
+      \end{tikzpicture}
+}
+
+
+% Section page
+
+\setbeamertemplate{sectionhead}{
+  \raggedright%
+  \linespread{1.0}%
+  \bfseries%
+  \LARGE
+  \textcolor{black}%
+  \insertsection%
+  \par%
+  \vspace*{0.5em}
+}
+
+\newcommand{\mysectionpage}{
+    \begingroup
+    \setbeamertemplate{background}{
+      \begin{tikzpicture}
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \node[] at ([shift={(1.7cm,-1cm)}]current page.north west) 
+          {
+            \includegraphics[width=23mm]{FHDO-Wortmarke_155x56_RGB.png} % Logo on every page
+          };
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+          \node [shading = axis,rectangle, left color=FHDOorange, right color=FHDOorange2,shading angle=225, anchor=north, minimum width=\the\paperwidth, minimum height=\the\paperheight] (box) at ([shift={(4cm,0cm)}]current page.north){};
+          \node[] at ([shift={(-1.5cm,-1cm)}]current page.north east) 
+          {
+            \includegraphics[width=15mm]{FHDO50_kl_w.png} % Jubiläumsclaim white on section divider
+          };
+        \end{tikzpicture}
+    }
+    \setbeamercolor{section page}{fg=white}
+    \setbeamertemplate{section page}
+{
+  \setbeamertemplate{background}{section page}
+    \vspace{3.6cm}
+      \hspace{0.3cm}
+    \usebeamerfont{title}\usebeamercolor{title}
+      \insertsectionnumber.\hspace{1em}\insertsection\par
+    \vfill
+}
+    \frame{\sectionpage}
+    \endgroup
+}
+
+\AtBeginSection{
+      \mysectionpage
+}
+
+% Versuche für Slide Optionen, die für das Abschlussslide und ggf. weitere besondere Slides genutzt werden sollen
+% bisher noch erfolglos
+
+% Der Code lehnt sich stark an die Definition der Standout-Option im Metropolis Theme an
+
+\newcommand{\setclosingbackground}{
+  \setbeamertemplate{background}{%
+    \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \node [shading = axis,rectangle, left color=FHDOorange, right color=FHDOorange2,shading angle=225, anchor=north, minimum width=\the\paperwidth, minimum height=\the\paperheight] (box) at ([shift={(3.5cm,0cm)}]current page.north west){};
+        \node[align=right, text=FHDOorange2,
+        font=\LARGE\bfseries\linespread{0.8}\selectfont] at ([shift={(-6cm,-2cm)}]current page.north east) 
+        {
+          we\\%
+          focus\\%
+          on\\%
+          students\par
+        };
+      \node[align=right, text=white] at ([shift={(3cm,1cm)}]current page.south west) 
+        {www.fh-dortmund.de\par
+        };
+      \end{tikzpicture}%
+      }%
+}
+
+\providebool{FHDO@standout}
+\define@key{beamerframe}{standout}[true]{%
+  \booltrue{FHDO@standout}
+  \setbeamertemplate{footline}{}
+  \setbeamertemplate{background}{}
+  \setclosingbackground
+    \begingroup
+    \setkeys{beamerframe}{c}
+      \vspace{1cm}
+      \hspace{-5cm}
+    \usebeamerfont{title}\usebeamercolor[fg]{title}
+}
+%
+%    Then we just have to close the group after the standout slide is finished
+%    in order to restore the colours and fonts for the rest of the
+%    presentation. Unfortunately, we cannot use \AfterEndEnvironment{frame} for
+%    this (see \url{http://tex.stackexchange.com/questions/226319/}).
+%    Instead, we prepend the |\endgroup| to |\beamer@reseteecodes|, which is run
+%    exactly once at the end of each slide.
+%
+  \pretocmd{\beamer@reseteecodes}{%
+    \ifbool{FHDO@standout}{
+      \endgroup
+      \boolfalse{FHDO@standout}
+      \setbeamertemplate{background}{
+        \backgroundpics
+      }
+    }{}
+  }{}{}
+%
+%    We set the fonts and the \centering alignment on the inner content,
+%    in such a way that the speaker's note layout isn't affected by the custom
+%    formatting.
+%
+  \AtBeginEnvironment{beamer@frameslide}{
+    \ifbool{FHDO@standout}{
+      \centering
+      \usebeamerfont{standout}
+    }{}
+  }
+% 
+
+% Items
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{footnote}{%
+  \parindent 0em\noindent%
+  \raggedright
+  \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+  \vspace{3mm}
+}
+
+
+\mode
+<all>

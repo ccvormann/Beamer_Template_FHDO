@@ -1,0 +1,19 @@
+\frametitle{\texttt {R\ Code}}
+\protect\hypertarget{r-code}{}
+Wenn das Template mit \texttt{rMarkdown} genutzt wird, kann
+entsprechender Code eingebaut und ausgeführt werden.
+
+\scriptsize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(mosaic)}
+\FunctionTok{xpnorm}\NormalTok{(}\FloatTok{44.5}\NormalTok{, }\AttributeTok{mean=}\DecValTok{55}\NormalTok{, }\AttributeTok{sd=}\DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Test_files/figure-beamer/my-chunk-1.pdf}
+
+\begin{verbatim}
+## [1] 0.2419637
+\end{verbatim}

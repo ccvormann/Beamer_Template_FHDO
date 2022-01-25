@@ -1,0 +1,56 @@
+% LaTeX-Beamer Theme that replicates the style guide, corporate design and PPT-Template of 
+% https://www.fh-dortmund.de 
+% 
+% Code by Claus Vormann, (c) 2022
+% This code is distributable with one of the following licences:
+% CC-BY 4.0 https://creativecommons.org/licenses/by/4.0/
+% LPPL https://www.latex-project.org/lppl/
+%
+% The code is partially based on:
+% https://rlog.rgtti.com/2019/09/21/make-your-own-beamer-style-ducks/
+% https://tex.stackexchange.com/questions/146529/design-a-custom-beamer-theme-from-scratch
+% https://tex.stackexchange.com/questions/26299/how-does-beamer-build-the-frame
+% ...and several other ideas on tex.stackexchange.com
+%
+% Thanks to ... for very useful hints.
+%
+
+\mode<presentation>
+
+% Format the Frame title / headline of each frame
+\defbeamertemplate*{frametitle}{texsx}[1][]
+{
+  \begin{tikzpicture}
+   \useasboundingbox[](0,0) rectangle(\the\paperwidth,2);%
+            {\node[anchor= north west] at (-0.2,1.5){\usebeamerfont{section in title}\usebeamercolor[fg]{subtitle}\insertsection};%
+            \node[anchor= north west] at (-0.2,1.1){\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle};}%
+    \end{tikzpicture}
+    \vspace*{-1cm} % Added this to move the content upwards
+}
+
+% Footline for each frame except title page
+
+\newcommand{\Ffootline}{%                       %%defines a new command called \Ffootline
+    \insertshortauthor                          %%puts the author's name  in the left corner
+    \hfill
+    \inserttitle \hspace{0.25em} (\insertdate)  %%puts the presentation's title and the date in the middle
+    \hfill
+    \insertframenumber}                         %%includes the current slide number in the right corner
+
+
+\setbeamertemplate{footline}{%                  %%sets the options for the footline
+ \ifnum 
+      \insertpagenumber=1                       %% Not Footline on the Title Page
+      \leavevmode%
+      \hbox{%
+      \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{}% % empty environment to raise height
+      \end{beamercolorbox}}%
+      \vskip0pt%
+  \else
+      \usebeamercolor{author}                   %% sets the color to FHDOgrey4 as defined for author
+      \hspace*{4mm} \Ffootline \hspace{4mm}     %% includes the content of the \Ffootline, leaving a margin of 4mm to the right and left of the content.
+      \vspace*{3mm}                             %% leaves a margin of 3mm to the bottom of the page
+  \fi
+ }
+
+\mode<all>

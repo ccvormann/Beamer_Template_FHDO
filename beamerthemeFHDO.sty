@@ -1,0 +1,90 @@
+% LaTeX-Beamer Theme that replicates the style guide, corporate design and PPT-Template of 
+% https://www.fh-dortmund.de 
+% 
+% Code by Claus Vormann, (c) 2022
+% This code is distributable with one of the following licences:
+% CC-BY 4.0 https://creativecommons.org/licenses/by/4.0/
+% LPPL https://www.latex-project.org/lppl/
+%
+% The code is partially based on:
+% https://rlog.rgtti.com/2019/09/21/make-your-own-beamer-style-ducks/
+% https://tex.stackexchange.com/questions/146529/design-a-custom-beamer-theme-from-scratch
+% https://tex.stackexchange.com/questions/26299/how-does-beamer-build-the-frame
+% ...and several other ideas on tex.stackexchange.com
+%
+% Thanks to ... for very useful hints.
+%
+
+
+\mode<presentation>
+
+% Load the required packages
+\RequirePackage{tikz}
+\RequirePackage{fontspec}
+\RequirePackage{changepage}
+\usetikzlibrary{backgrounds,positioning,fit}
+
+% Settings
+\useinnertheme{FHDO}
+\useoutertheme{FHDO}
+\usecolortheme{FHDO}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+
+\pgfkeys{/FHDO/.cd,
+  usetitleprogressbar/.code=\pgfkeysalso{outer/progressbar=frametitle},
+  noslidenumbers/.code=\pgfkeysalso{outer/numbering=none},
+  usetotalslideindicator/.code=\pgfkeysalso{outer/numbering=fraction},
+  nosectionslide/.code=\pgfkeysalso{inner/sectionpage=none},
+  darkcolors/.code=\pgfkeysalso{color/background=dark},
+  blockbg/.code=\pgfkeysalso{color/block=fill, inner/block=fill},
+}
+
+\pgfkeys{
+  /FHDO/titleformat/.code=\pgfkeysalso{
+      font/titleformat title=#1,
+      font/titleformat subtitle=#1,
+      font/titleformat section=#1,
+      font/titleformat frame=#1,
+      titleformat plain=#1,
+    }
+}
+
+% Declare the required pgf layery
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{middle}
+\pgfdeclarelayer{main}
+\pgfdeclarelayer{forground}
+\pgfsetlayers{background, middle, main, forground}
+
+\mode<all>
+
+% Declare the CD required font MetaOfficePro as the main font to be used
+
+\setsansfont[
+            BoldFont = MetaOffcPro-Bold.ttf,
+            ItalicFont = MetaOffcPro-NormIta.ttf,
+            BoldItalicFont = MetaOffcPro-BoldIta.ttf
+            ]
+            {MetaOffcPro-Norm.ttf}
+
+% Declare the font styles to be used in the presentation
+
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{author}{size=\tiny}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize,series=\mdseries}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{section in title}{size=\normalsize,series=\mdseries}
+
+%  Set the size of the main text field.
+\setbeamersize{text margin left=3.9cm,text margin right=2em}
+
+% Format the footnotes
+% by (un)commenting the first line, the Footnote-Number can be switched on or off
+
+% \renewcommand*{\@makefnmark}{}
+\renewcommand\footnoterule{}
+\setbeamerfont{footnote}{size=\tiny}

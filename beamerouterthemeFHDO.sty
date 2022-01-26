@@ -23,9 +23,9 @@
   \begin{tikzpicture}
    \useasboundingbox[](0,0) rectangle(\the\paperwidth,2);%
             {\node[anchor= north west] at (-0.2,1.5){\usebeamerfont{section in title}\usebeamercolor[fg]{subtitle}\insertsection};%
-            \node[anchor= north west] at (-0.2,1.1){\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle};}%
+            \node[anchor= north west, text width=9.5cm] at (-0.2,1.1) {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\baselineskip=1pt\insertframetitle\par};}%
     \end{tikzpicture}
-    \vspace*{-1cm} % Added this to move the content upwards
+    \vspace*{-0.8cm} % Added this to move the content upwards
 }
 
 % Footline for each frame except title page

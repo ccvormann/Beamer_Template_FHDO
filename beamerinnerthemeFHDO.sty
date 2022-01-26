@@ -179,9 +179,16 @@
   }
 % 
 
-% Items
+% Itemization
+% Define item Symbol and indentation for two levels
 \setbeamertemplate{itemize item}[square]
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
 \setbeamertemplate{itemize subitem}[circle]
+\settowidth{\leftmarginii}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmarginii}{\labelsep}
+
 \setbeamertemplate{sections/subsections in toc}[square]
 \setbeamertemplate{footnote}{%
   \parindent 0em\noindent%

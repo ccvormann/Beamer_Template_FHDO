@@ -121,7 +121,6 @@ xpnorm(44.5, mean=55, sd=15)
 ## Zeit für Ihre Fragen{.c}
 
 \begin{center}
-\vspace{-13mm}
 \Huge \usebeamercolor[fg]{frame} \textbf{Welche Fragen haben Sie?}
 \end{center}
 

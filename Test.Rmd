@@ -7,6 +7,7 @@ output:
   beamer_presentation:
     slide_level: 2
     latex_engine: lualatex
+    toc: false
 lang: de-DE
 csquotes: true 
 classoption: 
@@ -52,6 +53,8 @@ library(latex2exp)
 library(showtext)
 ```
 
+## Inhalt 
+\tableofcontents
 
 # Grundlagen
 

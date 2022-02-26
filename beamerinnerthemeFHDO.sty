@@ -190,9 +190,21 @@
 \addtolength{\leftmarginii}{\labelsep}
 
 \setbeamertemplate{sections/subsections in toc}[square]
+
+
+
+\patchcmd{\beamer@sectionintoc}
+  {\vfill}
+  {\vskip\itemsep}
+  {}
+  {}
+  
+
+
+
 \setbeamertemplate{footnote}{%
   \parindent 0em\noindent%
-  \raggedright
+  \raggedleft
   \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
   \vspace{3mm}
 }

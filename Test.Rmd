@@ -36,8 +36,8 @@ header-includes:
 #- \setbeameroption{show only notes}
 - \setbeameroption{hide notes}
 
-bibliography: "/home/ccv/Google Drive/Wiss_Arbeiten/Meine Bibliothek.bib"
-#csl: universitat-bremen-institut-fur-politikwissenschaft
+bibliography: "/home/ccv/ownCloud/Zotero_Storage/MeineBibliothek.bib"
+csl: "/home/ccv/ownCloud/Zotero_Storage/csl-files/apa-no-initials.csl"
  
 ---
 
@@ -82,14 +82,14 @@ library(showtext)
 
 ## Dokumentstruktur
 
-- Das Template unterstützt eine Gliederung in Abschnite `#` und Folien `##`
+- Das Template unterstützt eine Gliederung in Abschnitte `#` und Folien `##`
 - Dabei wird auf den Folien der Abschnittsname und der Folientitel angegeben. Jeder Abschnitt beginnt mit einer Unterteilungsfolie
 - Ein Inhaltsverzeichnis kann noch eingefügt werden.
 - Auf den Folien sind Fließtext und Aufzählungen möglich
   + Aufzählungen sind in zwei Ebenen vorgesehen
 
 1. Numerierte Aufzählungen
-2. sind ebenfalls vorgesehen^[hier sollte die Formatierung noch angepasst werden]
+2. sind ebenfalls vorgesehen
 
 ## Folien mit Fließtext
 
@@ -98,8 +98,8 @@ library(showtext)
 ## Zitationen und Fußnoten
 
 - Das Template unterstützt Zitate sowohl nach Harvard-Methode [@Oehlrich2019, S. 123] und im Chicago-Stye mit Fußnoten^[vgl. @Theisen2021, S. 456]
-- Fußnoten werden in der Präsentation fortlaufend numeriert^[vgl. @Kahneman2021]. In der Template-Datei kann die Nutzung des Fußnotenzeichens abgestellt werden, wenn in den Fußnoten eher die Quellen der Seite angegeben werden sollen
-  - Die Abschaltung erfolgt dokumentenweit
+- Fußnoten werden ohne FN-Zeichen oder Nummer am Ende der Folie rechtsbündig dargestellt^[vgl. @Kahneman2021]. In der Template-Datei kann die Nutzung des Fußnotenzeichens angestellt werden
+  - Dies erfolgt dokumentenweit
   - Aus Platzgründen empfiehlt es sich, alle Quellen der Folie in einer Fußnote zu nennen. 
 
 ## Blöcke

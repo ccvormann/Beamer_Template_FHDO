@@ -57,7 +57,7 @@
       \node[align=left] at ([shift={(1.5cm,1.5cm)}]current page.south west) 
       { \usebeamerfont{author}\usebeamercolor{author}\insertauthor\\ 
         \usebeamerfont{author}\usebeamercolor{author}\insertdate};
-      \node[align=left] at ([shift={(9.5cm,4.4cm)}]current page.south west) 
+      \node[align=left, text width=10cm] at ([shift={(9.5cm,4.4cm)}]current page.south west) 
       {      \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle \\%
       \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par };
       \end{tikzpicture}
@@ -98,10 +98,18 @@
     \setbeamertemplate{section page}
 {
   \setbeamertemplate{background}{section page}
-    \vspace{3.6cm}
-      \hspace{0.3cm}
-    \usebeamerfont{title}\usebeamercolor{title}
-      \insertsectionnumber.\hspace{1em}\insertsection\par
+    \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \node[align=left, text width=10cm] at ([shift={(5.5cm,0cm)}]current page.west) 
+      {      \usebeamerfont{title}\usebeamercolor[fg]{title} 
+
+      
+      \leftskip=2em \parindent=-1.3em 
+      \insertsectionnumber.\hspace{0.5em}\insertsection\par
+
+      };
+      
+      \end{tikzpicture}
     \vfill
 }
     \frame{\sectionpage}
@@ -189,10 +197,8 @@
 \settowidth{\leftmarginii}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmarginii}{\labelsep}
 
-\setbeamertemplate{sections/subsections in toc}[square]
-
-
-
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
 \patchcmd{\beamer@sectionintoc}
   {\vfill}
   {\vskip\itemsep}

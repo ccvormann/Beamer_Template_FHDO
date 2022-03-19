@@ -188,7 +188,7 @@
 % 
 
 % Itemization
-% Define item Symbol and indentation for two levels
+% Define item Symbol and indentation for three levels
 \setbeamertemplate{itemize item}[square]
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmargini}{\labelsep}
@@ -196,6 +196,10 @@
 \setbeamertemplate{itemize subitem}[circle]
 \settowidth{\leftmarginii}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmarginii}{\labelsep}
+
+\setbeamertemplate{itemize subsubitem}{--}
+\settowidth{\leftmarginiii}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmarginiii}{\labelsep}
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]

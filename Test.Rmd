@@ -1,5 +1,5 @@
 ---
-title: "LaTeX Beamer Theme im CD der FH Dortmund"
+title: "LaTeX Beamer Theme im Corporate Design der Fachhochschule Dortmund"
 subtitle: "Test und Beschreibung"
 author: "Prof. Dr. Claus Vormann"
 date: "SoSe 2022"
@@ -53,6 +53,42 @@ library(latex2exp)
 library(showtext)
 ```
 
+```{r echo=F}
+# ---------------------------------------------------------------------------
+#' next Exercise
+#'
+#' \code(nextExercise) will return the next exercise number
+#'
+#' @return A string with the next exercise number
+#'
+#' @examples
+#' ## Exercise No. 'r nextExercise`: A new Exercise!
+#
+nextExercise <- function() {
+  # ex <<- ex + 1
+  # return(thisExercise())
+  return(paste0("\\nextExercise"))
+}
+
+# ---------------------------------------------------------------------------
+# Die aktuelle Übung ...
+# ---------------------------------------------------------------------------
+#' Current Exercise
+#'
+#' \code(thisExercise) will return the current exercise number
+#'
+#' @return A string with the current exercise number
+#'
+#' @examples
+#' ## Still exercise No. 'r thisExercise`!
+#
+thisExercise <- function() {
+  #return(paste0(ex, ""))
+  return(paste0("\\thisExercise"))
+}
+
+```
+
 ## Inhalt 
 \tableofcontents
 
@@ -78,6 +114,8 @@ library(showtext)
 - Was antworten Sie der MA? Ich stelle Ihnen jetzt drei Optionen vor und sie können anschließend in einer anonymen Web-Umfrage eine Option auswählen. Anschließend können wir die Ergebnisse gemeinsam ansehen. 
 :::
 
+
+
 # Technische Umsetzung 
 
 ## Dokumentstruktur
@@ -87,6 +125,9 @@ library(showtext)
 - Ein Inhaltsverzeichnis kann noch eingefügt werden.
 - Auf den Folien sind Fließtext und Aufzählungen möglich
   + Aufzählungen sind in zwei Ebenen vorgesehen
+    - jetzt auch auf drei Ebenen
+
+Hier ein kurzer Zwischentext  
 
 1. Numerierte Aufzählungen
 2. sind ebenfalls vorgesehen
@@ -120,6 +161,16 @@ Wenn das Template mit `rMarkdown` genutzt wird, kann entsprechender Code eingeba
 library(mosaic)
 xpnorm(44.5, mean=55, sd=15)
 ```
+
+
+## Übung: Ein Slide mit einer Übung {.exercise}
+
+- Durch die Auswahl von `{.exercise}` wird das entsprechende Template angesteuert.
+  - Die entsprechende Formatvorlage ist in ... hinterlegt
+- Die Funktion ``r nextExercise()`` sorgt dafür, dass die Übungen im kompletten Foliensatz hochgezählt werden.
+  - die Funktion ist ... abgelegt.
+  
+# Auch lange Abschnittsüberschriften werden umgebochen
 
 ## Zeit für Ihre Fragen{.c}
 

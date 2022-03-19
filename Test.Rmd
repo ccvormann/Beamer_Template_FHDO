@@ -172,6 +172,67 @@ xpnorm(44.5, mean=55, sd=15)
   
 # Auch lange Abschnittsüberschriften werden umgebochen
 
+## Nutzung von Spalten
+
+\scriptsize
+
+In der Umgebung kann mit Spalten gearbeitet werden, dadurch kann auch die gesamte Folienbreite ausgenutzt werden.
+
+Die Doppelpunkte müssen links beginnen, eine Einrückung macht sie unwirksam.
+
+
+
+  ::: {.columns align=top}
+  
+  :::: {.column width=.1}
+  <!-- Empty column to create the left margin -->
+  ::::
+  
+  :::: {.column width=--percentage--}
+  
+   --content first column--
+  
+  ::::
+  
+  :::: {.column width=--percentage--}
+  
+   --content second column--
+  
+  ::::
+  
+  :::
+  
+## Slide mit zwei Spalten und linker Marge
+
+::: {.columns align=top}
+
+:::: {.column width=.1}
+<!-- Empty column to create the left margin -->
+::::
+
+:::: {.column width=.4}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor felis nisl, quis auctor lorem ultricies in. Cras a consectetur ligula, vitae gravida purus. Nullam finibus massa vitae neque dignissim, sit amet faucibus massa pulvinar. Pellentesque sodales, enim at accumsan accumsan, urna eros venenatis quam, lobortis consequat augue turpis quis orci. 
+::::
+
+:::: {.column width=.4}
+Praesent tristique leo in nibh scelerisque, eu fermentum velit tristique. Suspendisse semper leo justo, vel dictum ex mattis sed. Ut eu efficitur ligula, et dignissim ipsum. Proin tincidunt est ac vestibulum aliquet. Proin dignissim mi sed magna posuere commodo sed nec augue. Sed maximus enim posuere, congue orci at, aliquet est. Quisque finibus orci non elit fermentum, 
+
+::::
+
+:::
+
+## Slide mit einer Spalte, ohne linke Marge
+
+::: {.columns align=top}
+
+:::: {.column width=1}
+Praesent blandit erat id ante luctus tempor. Quisque aliquet, neque ac fermentum suscipit, neque magna elementum quam, non placerat ex leo in augue. Praesent non ultricies purus. Donec cursus auctor lectus, nec accumsan massa suscipit eu.  Aliquam rhoncus mattis ligula, id luctus orci cursus sit amet. Ut hendrerit magna nisi, vitae sagittis lacus vestibulum et. Aliquam placerat vitae est a molestie. Donec eu ultricies odio.
+
+Duis ullamcorper mauris nulla, et rhoncus purus placerat vitae. Nam pulvinar dapibus quam eget interdum. Suspendisse mollis aliquet vehicula. Integer eleifend odio ac dolor rutrum lobortis. Morbi ornare porta leo nec pulvinar. 
+::::
+
+:::
+
 ## Zeit für Ihre Fragen{.c}
 
 \begin{center}

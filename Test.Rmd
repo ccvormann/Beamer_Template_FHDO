@@ -14,27 +14,27 @@ classoption:
   - "aspectratio=169"
   - t
 header-includes: 
-- \usetheme{FHDO}
-- \usepackage{color}
-- \usepackage{graphicx}
-- \usepackage{booktabs}
-- \usepackage{longtable}
-- \usepackage{array}
-- \usepackage{multirow}
-- \usepackage{wrapfig}
-- \usepackage{float}
-- \usepackage{colortbl}
-- \usepackage{pdflscape}
-- \usepackage{tabu}
-- \usepackage{threeparttable}
-- \usepackage{threeparttablex}
-- \usepackage[normalem]{ulem}
-- \usepackage{makecell}
-- \usepackage{pgfpages}
-- \usepackage{lipsum}
+  - \usetheme{FHDO}
+  - \usepackage{color}
+  - \usepackage{graphicx}
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \usepackage{pgfpages}
+  - \usepackage{lipsum}
 #- \setbeameroption{show notes on second screen}
 #- \setbeameroption{show only notes}
-- \setbeameroption{hide notes}
+  - \setbeameroption{hide notes}
 
 bibliography: "/home/ccv/ownCloud/Zotero_Storage/MeineBibliothek.bib"
 csl: "/home/ccv/ownCloud/Zotero_Storage/csl-files/apa-no-initials.csl"
@@ -109,7 +109,7 @@ thisExercise <- function() {
 ::: notes
 
 - Stellen Sie sich bitte vor, wir sind in Lüdenscheid, also quasi Dortmund-Süd, und es ist April 2017!
-- Sie sind HR BP ...[@Bamberger2010]
+- Sie sind HR BP ...
 
 - Was antworten Sie der MA? Ich stelle Ihnen jetzt drei Optionen vor und sie können anschließend in einer anonymen Web-Umfrage eine Option auswählen. Anschließend können wir die Ergebnisse gemeinsam ansehen. 
 :::
@@ -149,7 +149,17 @@ Hier ein kurzer Zwischentext
 
 Ein abgesetzter Textblock kann mit einer Gliederung unterhalb der höchst definierten eingeleitet werden. Hier ist eine Verbesserung der Formatierung erforderlich.
 
+## Defintionen
 
+Die Pandoc / Markdown Notation für Definitions wird unterstützt:
+
+    Term 1:
+    :   Definition 1
+%>% 
+Dabei wird der Term in FHDOrange gesetzt. 
+
+Term 1:
+:   Definition 1
 
 ## `R Code`
 
@@ -159,16 +169,25 @@ Wenn das Template mit `rMarkdown` genutzt wird, kann entsprechender Code eingeba
 
 ```{r my-chunk, echo=TRUE, Results=T, warning=FALSE, message=FALSE, fig.height=1.7, fig.width=3.5}
 library(mosaic)
-xpnorm(44.5, mean=55, sd=15)
+xpnorm(130, mean=100, sd=15)
 ```
 
 
-## Übung: Ein Slide mit einer Übung {.exercise}
+## Übung `r nextExercise()`: Ein Slide mit einer Übung {.exercise}
 
 - Durch die Auswahl von `{.exercise}` wird das entsprechende Template angesteuert.
   - Die entsprechende Formatvorlage ist in ... hinterlegt
 - Die Funktion ``r nextExercise()`` sorgt dafür, dass die Übungen im kompletten Foliensatz hochgezählt werden.
   - die Funktion ist ... abgelegt.
+  
+  
+## Hyperlinks
+
+- Links lassen sich in der `R markdown` Notation einfügen:
+
+  `[Linktext](URL)` &rarr; [FH Dortmund](https://www.fh-dortmund.de)
+
+- Die farbliche Hervorhebung und Unterstreichung exerner Links muss noch überarbeitet werden, um diese besser vom restlichen Folientext abzuheben. Gedacht ist an eine Unterstreichung in FHDOrange bei grauem Text.
   
 # Auch lange Abschnittsüberschriften werden umgebochen
 
@@ -180,27 +199,27 @@ In der Umgebung kann mit Spalten gearbeitet werden, dadurch kann auch die gesamt
 
 Die Doppelpunkte müssen links beginnen, eine Einrückung macht sie unwirksam.
 
+\scriptsize
 
-
-  ::: {.columns align=top}
+    ::: {.columns align=top}
   
-  :::: {.column width=.1}
-  <!-- Empty column to create the left margin -->
-  ::::
+    :::: {.column width=.1}
+    <!-- Empty column to create the left margin -->
+    ::::
   
-  :::: {.column width=--percentage--}
+    :::: {.column width=--percentage--}
   
-   --content first column--
+     --content first column--
   
-  ::::
+    ::::
   
-  :::: {.column width=--percentage--}
+    :::: {.column width=--percentage--}
   
-   --content second column--
+    --content second column--
   
-  ::::
+    ::::
   
-  :::
+    :::
   
 ## Slide mit zwei Spalten und linker Marge
 
@@ -233,6 +252,8 @@ Duis ullamcorper mauris nulla, et rhoncus purus placerat vitae. Nam pulvinar dap
 
 :::
 
+
+
 ## Zeit für Ihre Fragen{.c}
 
 \begin{center}
@@ -241,6 +262,7 @@ Duis ullamcorper mauris nulla, et rhoncus purus placerat vitae. Nam pulvinar dap
 
 
 ##  {.standout}
+\vspace{1cm}
 Thank you!
 
 # Backup  {.unlisted .unnumbered}

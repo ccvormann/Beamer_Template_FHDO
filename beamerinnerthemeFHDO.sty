@@ -30,10 +30,15 @@
       {
         \includegraphics[width=23mm]{FHDO-Wortmarke_155x56_RGB.png} % Wortmarke oben links auf jeder Seite
       };
-      \node[] at ([shift={(-1.5cm,-1cm)}]current page.north east) 
-      {
-        \includegraphics[width=15mm]{FHDO50_kl_g.png} % Jubiläumsclaim oben rechts auf jeder Seite
-      };
+      \node[align=right, text=FHDOgrey1,
+        font=\large\bfseries\linespread{0.8}\selectfont] at ([shift={(-1.3cm,-1cm)}]current page.north east) 
+        {
+          we\\%
+          focus\\%
+          on\\%
+          students\par
+        };
+
     \end{tikzpicture}
 }
 
@@ -49,9 +54,13 @@
       \begin{tikzpicture}[remember picture,overlay] 
         \begin{pgfonlayer}{background}
         \node [shading = axis,rectangle, left color=FHDOorange, right color=FHDOorange2,shading angle=225, anchor=north, minimum width=\the\paperwidth, minimum height=\the\paperheight] (box) at ([shift={(4cm,0cm)}]current page.north){};
-        \node[] at ([shift={(-1.5cm,1.6cm)}]current page.south east) 
+        \node[align=right, text=FHDOorange2,
+        font=\LARGE\bfseries\linespread{0.6}\selectfont] at ([shift={(14.4cm,1.6cm)}]current page.south west)
         {
-          \includegraphics[width=23mm]{FHDO50_gr.png} % Logo Jubiläum in Colorbox
+          we\\%
+          focus\\%
+          on\\%
+          students\par
         };
       \end{pgfonlayer}
       \node[align=left] at ([shift={(1.5cm,1.5cm)}]current page.south west) 
@@ -88,10 +97,19 @@
           };
         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
           \node [shading = axis,rectangle, left color=FHDOorange, right color=FHDOorange2,shading angle=225, anchor=north, minimum width=\the\paperwidth, minimum height=\the\paperheight] (box) at ([shift={(4cm,0cm)}]current page.north){};
-          \node[] at ([shift={(-1.5cm,-1cm)}]current page.north east) 
-          {
-            \includegraphics[width=15mm]{FHDO50_kl_w.png} % Jubiläumsclaim white on section divider
-          };
+        %   \node[align=right, text=FHDOorange2,
+        % font=\large\bfseries\linespread{0.8}\selectfont] at ([shift={(-1.3cm,-1cm)}]current page.north east) 
+        % {
+        %   we\\%
+        %   focus\\%
+        %   on\\%
+        %   students\par
+        % };
+          
+          % \node[] at ([shift={(-1.3cm,-1cm)}]current page.north east) 
+          % {
+          %   \includegraphics[width=15mm]{WEFOCUS_orange.png} % Claim half opace section divider
+          % };
         \end{tikzpicture}
     }
     \setbeamercolor{section page}{fg=white}
@@ -141,6 +159,7 @@
       \node[align=right, text=white] at ([shift={(3cm,1cm)}]current page.south west) 
         {www.fh-dortmund.de\par
         };
+       
       \end{tikzpicture}%
       }%
 }
@@ -218,6 +237,8 @@
   \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
   \vspace{3mm}
 }
+
+
 
 
 \mode

@@ -24,10 +24,13 @@
 \RequirePackage{changepage}
 \usetikzlibrary{backgrounds,positioning,fit}
 
+
 % Settings
 \useinnertheme{FHDO}
 \useoutertheme{FHDO}
 \usecolortheme{FHDO}
+
+
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]  
@@ -82,9 +85,116 @@
 %  Set the size of the main text field.
 \setbeamersize{text margin left=3.9cm,text margin right=2em}
 
+
+
 % Format the footnotes
 % by (un)commenting the first line, the Footnote-Number can be switched on or off
 
 \renewcommand*{\@makefnmark}{}
 \renewcommand\footnoterule{}
 \setbeamerfont{footnote}{size=\tiny}
+
+% Format the block environment
+
+
+\setbeamertemplate{blocks}[default]
+
+
+% Alles rund um Übungen -- Übernommen und angepasst vom FOM Layout
+
+\setbeamercolor{frametitle in head exercise}{parent=myheader, bg=FHDOTitelColor, fg=white}
+\setbeamerfont{myheader}{}
+\setbeamerfont{frametitle in head exercise}{parent=myheader}
+
+% ---------------------------------------------------------------------------
+%
+% Übungen und sollen einen etwas anderen Hintergrund beim Frametitle haben. 
+% Hier wird ein Schalter dazu erzeugt und und auf die normale Darstellun (false) gesetzt.
+%
+\newif\ifFHDOexercisemode
+\FHDOexercisemodefalse
+%  \FHDOexercisemodetrue
+
+% ---------------------------------------------------------------------------
+% Sind wir gerade in einer Notes Umgebung oder nicht?
+%
+\newif\ifnotesmode
+\notesmodefalse
+
+% ---------------------------------------------------------------------------
+%
+% Note page (default) updated!
+%
+\newsavebox{\mytempbox}
+\defbeamertemplate{note page}{custom}
+{\notesmodetrue
+  {%
+    \scriptsize
+    \usebeamerfont{note title}\usebeamercolor[fg]{note title}%
+    \ifbeamercolorempty[bg]{note title}{}{%
+      \insertvrule{.25\paperheight}{note title.bg}%
+      \vskip-.25\paperheight%
+      \nointerlineskip%
+    }%
+    \vbox{%
+      \hspace*{.6875\paperwidth}\insertslideintonotes{0.25}%
+      \vskip-0.25\paperheight%
+      \nointerlineskip
+      \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
+        \begin{pgflowlevelscope}{\pgftransformrotate{90}}
+          {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
+          \pgftext[base,left]{\usebeamerfont{note date}\usebeamercolor[fg]{note date}\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
+        \end{pgflowlevelscope}
+      \end{pgfpicture}
+    }%
+    \nointerlineskip
+    \vbox to .25\paperheight{\vskip0.5em
+     \hbox{\insertshorttitle[width=8cm]}%
+     \setbox\mytempbox=\hbox{\insertsection}%
+     \hbox{\ifdim\wd\mytempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
+           width0.4pt height7pt\vrule width 9pt
+           height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
+      }%
+      \setbox\mytempbox=\hbox{\insertsubsection}%
+      \hbox{\ifdim\wd\mytempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
+            width0.4pt height7pt\vrule width 9pt
+            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
+      }%
+      \setbox\mytempbox=\hbox{\insertshortframetitle}%
+     % \hbox{\ifdim\wd\mytempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
+     %       width0.4pt height7pt\vrule width 9pt
+     %       height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
+     % }%
+      \vfil}%
+  }%
+  \ifbeamercolorempty[bg]{note page}{}{%
+    \nointerlineskip%
+    \insertvrule{.75\paperheight}{note page.bg}%
+    \vskip-.75\paperheight%
+  }%
+  \vskip.25em
+  \nointerlineskip
+  %
+  %\textwidth=10.8cm%
+  \textwidth=13.8cm%
+  \hsize=\textwidth%
+  %
+  \insertnote\notesmodefalse
+}
+
+
+\setbeamertemplate{note page}[custom]
+
+% ---------------------------------------------------------------------------
+% Exercise Counter
+%
+\newcounter{exerciseCounter}
+\newcommand{\nextExercise}{\ifnotesmode{\relax}\else{\stepcounter{exerciseCounter}}\fi\theexerciseCounter}
+\newcommand{\thisExercise}{\theexerciseCounter}
+
+% ---------------------------------------------------------------------------
+% Assignment Counter
+%
+\newcounter{assignmentCounter}
+\newcommand{\nextAssignment}{\ifnotesmode{\relax}\else{\stepcounter{assignmentCounter}}\fi\theassignmentCounter}
+\newcommand{\thisAssignment}{\theassignmentCounter}
